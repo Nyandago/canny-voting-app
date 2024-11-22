@@ -14,15 +14,18 @@ contract Voting {
     uint public candidatesCount;
     uint public totalVotes;
 
+    uint[] public candidateIds;  // Array to store candidate IDs for listing
+
     constructor() {
         admin = msg.sender;
     }
 
-    // Add candidate
+    // Add a new candidate
     function addCandidate(string memory name) public {
         require(msg.sender == admin, "Only admin can add candidates");
         candidatesCount++;
         candidates[candidatesCount] = Candidate(candidatesCount, name, 0);
+        candidateIds.push(candidatesCount);  // Add the new candidate ID to the array
     }
 
     // Vote for a candidate
@@ -35,7 +38,7 @@ contract Voting {
         totalVotes++;
     }
 
-    // Get the results
+    // Get the results of the voting
     function getResults() public view returns (string memory, uint) {
         uint winningVoteCount = 0;
         uint winningCandidateId;
@@ -48,5 +51,16 @@ contract Voting {
         }
 
         return (candidates[winningCandidateId].name, winningVoteCount);
+    }
+
+    // List all added candidates
+    function listCandidates() public view returns (Candidate[] memory) {
+        Candidate[] memory allCandidates = new Candidate[](candidateIds.length);
+        
+        for (uint i = 0; i < candidateIds.length; i++) {
+            allCandidates[i] = candidates[candidateIds[i]];
+        }
+
+        return allCandidates;
     }
 }

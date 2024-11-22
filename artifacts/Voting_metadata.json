@@ -44,6 +44,25 @@
 						"type": "uint256"
 					}
 				],
+				"name": "candidateIds",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
 				"name": "candidates",
 				"outputs": [
 					{
@@ -91,6 +110,36 @@
 						"internalType": "uint256",
 						"name": "",
 						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "listCandidates",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "id",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "name",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "voteCount",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct Voting.Candidate[]",
+						"name": "",
+						"type": "tuple[]"
 					}
 				],
 				"stateMutability": "view",
@@ -170,11 +219,11 @@
 	},
 	"sources": {
 		"voting.sol": {
-			"keccak256": "0xada699c29cd06b165befe5f92f6e0fb864bed09ed8bca5558edc2622c268de14",
+			"keccak256": "0xa165924640b33c6cae7d1bbef79633b55ac2fa50ff54281d0b2025dd02ca53c1",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://4ac9837801a40780f30ae7610e14503795d3e5e0f23d40922fe7fc2b8329ca92",
-				"dweb:/ipfs/QmVDKUuTLcvw9Tdt6PUEG8XHduKvdRcbSD4GxeqcydjiJS"
+				"bzz-raw://9e0c70374e55fa2c4fed42b3bd2b0d1ab352f2adeecf18e08cc4010258897096",
+				"dweb:/ipfs/QmWuqsK3htT9V7CLWd7BXRKpxonGUd8AZneT2mvcoFPTnS"
 			]
 		}
 	},
